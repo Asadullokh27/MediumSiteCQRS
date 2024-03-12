@@ -1,4 +1,7 @@
-﻿using MediumSite.Application.UseCases.Commands;
+﻿using AutoMapper;
+using MediatR;
+using MediumSite.Application.UseCases.Commands;
+using MediumSite.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
