@@ -1,4 +1,6 @@
-﻿using MediumSite.Application.Abstractions.Mapper;
+﻿using MediatR;
+using MediumSite.Application.Abstractions.Mapper;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;

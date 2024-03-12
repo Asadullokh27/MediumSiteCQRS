@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using MediumSite.Application.Abstractions;
 using MediumSite.Application.UseCases.Commands;
 using MediumSite.Domain.Entities;
 using System;
