@@ -23,7 +23,7 @@ namespace MediumSite.Application.UseCases.Handler
             _mapper = mapper;
         }
 
-        public async Task<List<User>> Handle(GetAllUsersCommmandQuery request, CancellationToken cancellationToken)
+        public async Task<List<User>> Handle(GetAllUsersCommandQuery request, CancellationToken cancellationToken)
         {
             var users = await _context.Users.ToListAsync();
 

@@ -21,6 +21,8 @@ namespace MediumSite.Application.UseCases.Handler
             _mapper = mapper;
         }
 
+        //Something
+
         protected async override Task Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = _mapper.Map<User>(request);
