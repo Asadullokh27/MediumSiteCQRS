@@ -12,22 +12,24 @@ namespace MediumSite.Application.Abstractions.Mapper
         public static TEntity MyMapp<TEntity>(this object entity)
            where TEntity : class
         {
-            var newEntity = Activator.CreateInstance<TEntity>();
-            var typeNewEntity = newEntity.GetType();
-            var typeObject = entity.GetType();
 
-            PropertyInfo[] properties = typeNewEntity.GetProperties();
+            var EntityPro = Activator.CreateInstance<TEntity>();
+            var TypeOfEntityPro = EntityPro.GetType();
+            var TypeOfObjectPro = entity.GetType();
 
-            foreach (var property in properties)
+            PropertyInfo[] PropertyPros = TypeOfEntityPro.GetProperties();
+
+            foreach (var PropertyPro in PropertyPros)
             {
-                var objectProperty = typeObject.GetProperty(property.Name);
+                var ObjectOfPropertyPro = TypeOfObjectPro.GetProperty(PropertyPro.Name);
 
-                if (objectProperty != null)
-                    property.SetValue(newEntity, objectProperty.GetValue(entity));
+                if (ObjectOfPropertyPro != null)
+                    PropertyPro.SetValue(EntityPro, ObjectOfPropertyPro.GetValue(entity));
             }
 
-            return (TEntity)newEntity;
-        }
 
+            //Ustoz aytganingizdek 0 dan yozdim!
+            return (TEntity)EntityPro;
+        }
     }
 }
