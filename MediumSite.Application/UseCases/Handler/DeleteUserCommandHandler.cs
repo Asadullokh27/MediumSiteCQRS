@@ -22,7 +22,6 @@ namespace MediumSite.Application.UseCases.Handler
             _mapper = mapper;
         }
 
-        //Something
         protected override async Task Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsDeleted != true);

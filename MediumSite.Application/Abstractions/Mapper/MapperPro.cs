@@ -9,10 +9,9 @@ namespace MediumSite.Application.Abstractions.Mapper
 {
     public static class MapperPro
     {
-        public static TEntity MyMapp<TEntity>(this object entity)
+        public static TEntity ManualMapper<TEntity>(this object entity)
            where TEntity : class
         {
-
             var EntityPro = Activator.CreateInstance<TEntity>();
             var TypeOfEntityPro = EntityPro.GetType();
             var TypeOfObjectPro = entity.GetType();
@@ -26,8 +25,6 @@ namespace MediumSite.Application.Abstractions.Mapper
                 if (ObjectOfPropertyPro != null)
                     PropertyPro.SetValue(EntityPro, ObjectOfPropertyPro.GetValue(entity));
             }
-
-
             //Ustoz aytganingizdek 0 dan yozdim!
             return (TEntity)EntityPro;
         }
