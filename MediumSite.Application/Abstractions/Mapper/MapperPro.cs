@@ -30,3 +30,25 @@ namespace MediumSite.Application.Abstractions.Mapper
         }
     }
 }
+
+
+
+    //    public static TEntity ManualMapper<TEntity>(this object entity)
+    //        where TEntity : class, new()
+    //    {
+    //        var result = new TEntity();
+    //        var entityType = typeof(TEntity);
+
+    //        foreach (var entityProperty in entityType.GetProperties())
+    //        {
+    //            var sourceProperty = entity.GetType().GetProperty(entityProperty.Name);
+    //            if (sourceProperty != null && sourceProperty.CanRead && entityProperty.CanWrite)
+    //            {
+    //                var sourceValue = sourceProperty.GetValue(entity);
+    //                entityProperty.SetValue(result, sourceValue);
+    //            }
+    //        }
+
+    //        return result;
+    //    }
+    //Ustoz Googledan qidirib ko'rgandim boshqacha yo'li ham bor ekan!
