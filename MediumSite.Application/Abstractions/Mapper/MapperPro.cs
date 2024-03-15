@@ -9,25 +9,46 @@ namespace MediumSite.Application.Abstractions.Mapper
 {
     public static class MapperPro
     {
-        public static TEntity MyMapp<TEntity>(this object entity)
+        public static TEntity ManualMapper<TEntity>(this object entity)
            where TEntity : class
         {
-            var newEntity = Activator.CreateInstance<TEntity>();
-            var typeNewEntity = newEntity.GetType();
-            var typeObject = entity.GetType();
+            var EntityPro = Activator.CreateInstance<TEntity>();
+            var TypeOfEntityPro = EntityPro.GetType();
+            var TypeOfObjectPro = entity.GetType();
 
-            PropertyInfo[] properties = typeNewEntity.GetProperties();
+            PropertyInfo[] PropertyPros = TypeOfEntityPro.GetProperties();
 
-            foreach (var property in properties)
+            foreach (var PropertyPro in PropertyPros)
             {
-                var objectProperty = typeObject.GetProperty(property.Name);
+                var ObjectOfPropertyPro = TypeOfObjectPro.GetProperty(PropertyPro.Name);
 
-                if (objectProperty != null)
-                    property.SetValue(newEntity, objectProperty.GetValue(entity));
+                if (ObjectOfPropertyPro != null)
+                    PropertyPro.SetValue(EntityPro, ObjectOfPropertyPro.GetValue(entity));
             }
-
-            return (TEntity)newEntity;
+            //Ustoz aytganingizdek 0 dan yozdim!
+            return (TEntity)EntityPro;
         }
-
     }
 }
+
+
+
+    //    public static TEntity ManualMapper<TEntity>(this object entity)
+    //        where TEntity : class, new()
+    //    {
+    //        var result = new TEntity();
+    //        var entityType = typeof(TEntity);
+
+    //        foreach (var entityProperty in entityType.GetProperties())
+    //        {
+    //            var sourceProperty = entity.GetType().GetProperty(entityProperty.Name);
+    //            if (sourceProperty != null && sourceProperty.CanRead && entityProperty.CanWrite)
+    //            {
+    //                var sourceValue = sourceProperty.GetValue(entity);
+    //                entityProperty.SetValue(result, sourceValue);
+    //            }
+    //        }
+
+    //        return result;
+    //    }
+    //Ustoz Googledan qidirib ko'rgandim boshqacha yo'li ham bor ekan!
